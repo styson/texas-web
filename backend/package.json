@@ -1,0 +1,30 @@
+{
+  "name": "texas-web-backend",
+  "version": "0.1.0",
+  "private": true,
+  "license": "mit",
+  "type": "module",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.549.0",
+    "@aws-sdk/credential-providers": "^3.549.0",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^16.18.95",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "typescript": "^5.4.2"
+  },
+  "devDpendencies": {
+    "esbuild": "^0.20.2",
+    "prettify": "^0.1.7",
+    "react-scripts-ts": "latest"
+  },
+  "scripts": {
+    "build": "rm -rf build && esbuild ./lambda/* --entry-names=[dir]/[name]/index --bundle --minify --sourcemap --platform=node --target=node20.11.1 --outdir=build",
+    "package": "cd build/index && zip ../index.zip * "
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  }
+}

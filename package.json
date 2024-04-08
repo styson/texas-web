@@ -3,13 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "license": "mit",
+  "type": "module",
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.549.0",
+    "@aws-sdk/client-s3": "^3.550.0",
+    "@aws-sdk/credential-providers": "^3.549.0",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^2.1.1",
+    "@types/bcryptjs": "^2.4.6",
     "@types/node": "^16.18.95",
     "@types/react": "^18.2.74",
     "@types/react-dom": "^18.2.24",
     "@types/react-router-dom": "^5.3.3",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
     "prettify": "^0.1.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -31,6 +39,18 @@
   "eslintConfig": {
     "extends": [
       "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
     ]
   }
 }
