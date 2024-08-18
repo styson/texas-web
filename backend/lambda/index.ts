@@ -11,8 +11,6 @@ const registerService = require('./service/register');
 const verifyService = require('./service/verify');
 
 export const handler = async (event: any) => {
-  console.log('Request Event: ', event);
-  
   let response;
   
   switch(true) {
@@ -25,9 +23,25 @@ export const handler = async (event: any) => {
       break;
     case event.httpMethod === 'POST' && event.path === registerPath:
       const registerBody = JSON.parse(event.body);
+
       const userInfo: UserInfo = {
         ...registerBody
-      };
+      }
+
+      const email = userInfo.email;
+      const name = userInfo.name;
+      const password = userInfo.password;
+      const username = userInfo.username;
+    
+      if (!username || !email || !name || !password) {
+        return buildResponse(401, 'all fields are required');
+      }
+
+      userInfo.email = userInfo.email.trim();
+      userInfo.name = userInfo.name.trim();
+      userInfo.password = userInfo.password.trim();
+      userInfo.username = userInfo.username.trim().toLowerCase();
+
       response = await registerService.register(userInfo);
       break;
     case event.httpMethod === 'POST' && event.path === verifyPath:

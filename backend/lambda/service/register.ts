@@ -8,20 +8,8 @@ const client = new DynamoDBClient({
 });
 
 export async function register(userInfo: UserInfo) {
-  const email = userInfo.email.trim();
-  const name = userInfo.name.trim();
-  const password = userInfo.password.trim();
-  const username = userInfo.username.trim().toLowerCase();
-
-  
-  if (!username || !email || !name || !password) {
-    return buildResponse(401, 'all fields are required');
-  }
-  
   // check for existing user
-  // const user = await client.send()
   const user = await getUser(userInfo);
-
   if (user) {
     return buildResponse(401, 'user already exists');
   }

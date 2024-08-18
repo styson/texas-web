@@ -2,6 +2,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
 import { Logo } from './logo';
+import { useLocation } from 'react-router-dom';
 // import { Profile } from './profile';
 // import { useAuthenticator } from '@aws-amplify/ui-react';
 
@@ -9,6 +10,9 @@ const navigation = [
   { name: 'Home', href: '/', current: true },
   { name: 'Tournament', href: '/tournament', current: false },
   { name: 'Game Days', href: '/game-days', current: false },
+  { name: 'Banzaii', href: '/banzaii', current: false },
+  { name: 'Downloads', href: '/downloads', current: false },
+  { name: 'Calendar', href: '/calendar', current: false },
 ];
 
 function classNames(...classes: any[]) {
@@ -36,6 +40,11 @@ function toggleTheme() {
 }
 
 export function Navigation() {
+  const location = useLocation();
+  navigation.forEach(_ => {
+    _.current = _.href === location.pathname;
+  });
+
   // const { authStatus, signOut } = useAuthenticator((context) => [context.user]);
   const authStatus: string = 'authenticated';
   const lightHidden = localStorage.theme === 'dark' ? 'hidden w-5 h-5' : 'w-5 h-5';

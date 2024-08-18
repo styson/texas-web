@@ -1,11 +1,12 @@
-import './App.css';
-// import '@aws-amplify/ui-react/styles.css';
-import { LoaderFunctionArgs, RouterProvider, createBrowserRouter, redirect } from 'react-router-dom';
+import { AslCalendar } from './pages/calendar';
+import { Banzaii } from './pages/banzaii';
+import { Downloads } from './pages/downloads';
+import { GameDays } from './pages/gamedays';
 import { Home } from './pages/home';
+import { LoaderFunctionArgs, RouterProvider, createBrowserRouter, redirect } from 'react-router-dom';
 import { Profile } from './pages/profile';
 import { SignIn } from './pages/signin';
 import { Tournament } from './pages/tournament';
-import { GameDays } from './pages/gamedays';
 // import { getCurrentUser } from 'aws-amplify/auth';
 
 const router = createBrowserRouter([
@@ -15,12 +16,24 @@ const router = createBrowserRouter([
     Component: Home,
     children: [
       {
+        path: 'banzaii',
+        Component: Banzaii,
+      },
+      {
         path: 'game-days',
         Component: GameDays,
       },
       {
         path: 'tournament',
         Component: Tournament,
+      },
+      {
+        path: 'downloads',
+        Component: Downloads,
+      },
+      {
+        path: 'calendar',
+        Component: AslCalendar,
       },
       {
         path: 'sign-in',

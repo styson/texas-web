@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Texas ASL</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="KeyWords" content="Central Texas ASL, Texas ASL, Austin ASL, ASL, Advanced Squad Leader, Squad Leader" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Texas ASL" />
+    <link rel="icon" href="favicon.ico" />
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script>
+      if (
+        localStorage.theme === 'dark' ||
+        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        document.documentElement.classList.add('dark');
+        document.querySelector('html').classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+        document.querySelector('html').classList.add('dark');
+      }
+    </script>
+  </body>
+</html>

@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "es2022",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
+    "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -14,9 +15,10 @@
     "resolveJsonModule": true,
     "declaration": true,
     "outDir": "./build",
+    "typeRoots" : ["node_modules/@types", "src/types"],
     "jsx": "react-jsx"
   },
   "include": [
-    "src"
+    "src",
   ]
 }

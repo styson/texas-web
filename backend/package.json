@@ -10,6 +10,7 @@
     "@types/bcryptjs": "^2.4.6",
     "@types/node": "^16.18.95",
     "bcryptjs": "^2.4.3",
+    "class-validator": "^0.14.1",
     "jsonwebtoken": "^9.0.2",
     "typescript": "^5.4.2"
   },
@@ -20,7 +21,9 @@
   },
   "scripts": {
     "build": "rm -rf build && esbuild ./lambda/* --entry-names=[dir]/[name]/index --bundle --minify --sourcemap --platform=node --target=node20.11.1 --outdir=build",
-    "package": "cd build/index && zip ../index.zip * "
+    "package": "cd build/index && zip ../index.zip *",
+    "upload": "aws s3 cp build/index.zip s3://texas-web/index.zip --profile texas-asl",
+    "update": "aws lambda update-function-code --function-name texas-web-login-backend --zip-file fileb://build/index.zip --profile texas-asl"
   },
   "eslintConfig": {
     "extends": [
